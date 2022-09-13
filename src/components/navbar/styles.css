@@ -1,0 +1,68 @@
+.logo__link {
+  padding: 19px 13px;
+  display: inline-block;
+}
+
+.navbar__filter {
+  margin-top: 20px;
+}
+
+.filter__form {
+  width: min(85%, 400px);
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  border-radius: 16px;
+  box-shadow: 0 1px 6px #0000001a;
+  overflow: hidden;
+}
+
+.filter__city,
+.filter__guests,
+.filter__search-button {
+  font-size: 1.4rem;
+}
+
+.filter__city,
+.filter__search-button {
+  padding: 16px;
+  text-align: center;
+  min-width: max-content;
+  position: relative;
+}
+
+.filter__guests {
+  padding: 16px min(16px, 5%);
+  text-overflow: ellipsis;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.filter__guests::placeholder {
+  color: #bdbdbd;
+}
+
+.filter__search-button {
+  background-color: inherit;
+  border: none;
+  color: #eb5757e6;
+}
+
+.filter__search-button::before,
+.filter__city::after {
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: 1px solid #f2f2f2;
+}
+
+.filter__search-button::before {
+  left: 0;
+}
+
+.filter__city::after {
+  right: 0;
+}
