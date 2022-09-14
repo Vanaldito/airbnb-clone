@@ -1,0 +1,44 @@
+.properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 20px;
+  justify-content: center;
+}
+
+.property {
+  width: min(400px, calc(100% - 26px));
+}
+
+.property__photo {
+  max-width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.property__info {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.property__type {
+  font-size: 1.4rem;
+  color: #828282;
+}
+
+.property__rating {
+  font-size: 1.4rem;
+  color: #4f4f4f;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.property__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
