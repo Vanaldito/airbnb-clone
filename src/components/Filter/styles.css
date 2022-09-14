@@ -20,9 +20,15 @@
 
 .filter__city,
 .filter__search-button {
-  text-align: center;
   min-width: max-content;
   position: relative;
+}
+
+.filter__guests,
+.filter__search-button {
+  background-color: inherit;
+  border: none;
+  outline: none;
 }
 
 .filter__city {
@@ -31,21 +37,19 @@
 
 .filter__guests {
   padding: 16px min(16px, 5%);
+  min-width: 10px;
   text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 1;
   width: 100%;
-  border: none;
-  outline: none;
-}
-
-.filter__guests::placeholder {
   color: #bdbdbd;
 }
 
 .filter__search-button {
-  background-color: inherit;
-  border: none;
   color: #eb5757e6;
   padding: 14px 16px;
+  width: max-content;
 }
 
 .filter__search-button::before,
