@@ -8,13 +8,14 @@ export default function Properties() {
 
   return (
     <div className="properties">
-      {properties.map(({ title, type, rating, photo }) => (
+      {properties.map(({ title, type, rating, photo, superHost }) => (
         <Property
           key={title}
           title={title}
           type={type}
           rating={rating}
           photo={photo}
+          superHost={superHost}
         />
       ))}
     </div>
