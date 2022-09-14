@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useFilterValues } from "../../hooks/use-filter-values";
+import { useContext, useState } from "react";
 import FilterValues from "../../contexts/FilterValues";
 import FilterDrawer from "../FilterDrawer";
 import SearchIcon from "../Icons/Search";
@@ -21,42 +20,41 @@ export default function Filter() {
     setFieldToModify(null);
   }
 
-  const filterValues = useFilterValues();
+  const filterValues = useContext(FilterValues);
 
   const totalGuests =
-    filterValues.guests.value.children + filterValues.guests.value.adults;
+    (filterValues?.guests.value.adults || 0) +
+    (filterValues?.guests.value.children || 0);
 
   return (
-    <FilterValues.Provider value={filterValues}>
-      <div className="filter">
-        <div className="filter__form">
-          <div className="filter__city" onClick={modifyField("location")}>
-            {filterValues.location.value}
-          </div>
-          <button
-            className="filter__guests"
-            type="button"
-            onClick={modifyField("guests")}
-          >
-            {totalGuests == 0 ? (
-              <span className="filter__guests__placeholder">Add guests</span>
-            ) : (
-              <span>
-                {totalGuests} guest{totalGuests > 1 ? "s" : ""}
-              </span>
-            )}
-          </button>
-          <button className="filter__search-button" type="submit">
-            <SearchIcon color="orange" />
-          </button>
+    <div className="filter">
+      <div className="filter__form">
+        <div className="filter__city" onClick={modifyField("location")}>
+          {filterValues?.location.value}
         </div>
-        {fieldToModify && (
-          <FilterDrawer
-            defaultFieldToModify={fieldToModify}
-            closeDrawer={clearFieldToModify}
-          />
-        )}
+        <button
+          className="filter__guests"
+          type="button"
+          onClick={modifyField("guests")}
+        >
+          {totalGuests == 0 ? (
+            <span className="filter__guests__placeholder">Add guests</span>
+          ) : (
+            <span>
+              {totalGuests} guest{totalGuests > 1 ? "s" : ""}
+            </span>
+          )}
+        </button>
+        <button className="filter__search-button" type="submit">
+          <SearchIcon color="orange" />
+        </button>
       </div>
-    </FilterValues.Provider>
+      {fieldToModify && (
+        <FilterDrawer
+          defaultFieldToModify={fieldToModify}
+          closeDrawer={clearFieldToModify}
+        />
+      )}
+    </div>
   );
 }
