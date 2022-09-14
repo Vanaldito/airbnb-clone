@@ -1,0 +1,47 @@
+.filter-drawer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 13px;
+}
+
+.filter-drawer__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.filter-drawer__close-button {
+  padding: 10px;
+  margin: -10px;
+  background-color: inherit;
+  border: none;
+}
+
+.filter-drawer__fields {
+  box-shadow: 0 1px 6px #0000001a;
+  border-radius: 16px;
+  margin: 20px auto;
+}
+
+.filter-drawer__field {
+  padding: 11px 25px;
+}
+
+.filter-drawer__field__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.filter-drawer__field__value,
+.filter-drawer__field__placeholder {
+  font-size: 1.4rem;
+}
+
+.filter-drawer__field__placeholder {
+  color: #bdbdbd;
+}
