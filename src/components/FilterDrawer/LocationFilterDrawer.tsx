@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import availableLocations from "../../constants/available-locations";
-import FilterValues from "../contexts/FilterValues";
+import FilterValues from "../../contexts/FilterValues";
 import LocationIcon from "../Icons/Location";
 
 export default function LocationFilterDrawer() {

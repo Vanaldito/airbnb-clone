@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import FilterValues from "../contexts/FilterValues";
+import FilterValues from "../../contexts/FilterValues";
 import CloseIcon from "../Icons/Close";
 import SearchIcon from "../Icons/Search";
 import LocationFilterDrawer from "./LocationFilterDrawer";

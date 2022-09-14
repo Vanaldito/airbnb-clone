@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFilterValues } from "../../hooks/use-filter-values";
-import FilterValues from "../contexts/FilterValues";
+import FilterValues from "../../contexts/FilterValues";
 import FilterDrawer from "../FilterDrawer";
 import SearchIcon from "../Icons/Search";
 
