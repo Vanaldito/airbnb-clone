@@ -4,9 +4,19 @@
   box-sizing: border-box;
 }
 
+.properties__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .properties__title {
   font-size: 2.1rem;
-  margin-bottom: 5px;
+}
+
+.number_of_stays {
+  font-size: 1.4rem;
 }
 
 .properties__ul {

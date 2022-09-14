@@ -20,7 +20,12 @@ export default function Properties() {
 
   return (
     <section className="properties">
-      <h2 className="properties__title">Stays in {country}</h2>
+      <header className="properties__header">
+        <h2 className="properties__title">Stays in {country}</h2>
+        <p className="number_of_stays">
+          {properties.length} stay{properties.length !== 1 ? "s" : ""}
+        </p>
+      </header>
       <ul className="properties__ul">
         {properties.map(({ title, type, rating, photo, superHost, beds }) => (
           <li className="properties__li" key={title}>
