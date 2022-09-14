@@ -21,7 +21,12 @@ export default function Property({
 }: PropertyProps) {
   return (
     <div className="property" key={title}>
-      <img className="property__photo" src={photo} />
+      <img
+        className="property__photo"
+        src={photo}
+        loading="lazy"
+        width="100%"
+      />
       <div className="property__info">
         <div className="property__info__left-side">
           {superHost && <div className="property__super-host">SUPER HOST</div>}
