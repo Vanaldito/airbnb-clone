@@ -20,7 +20,7 @@ export default function Property({
   beds,
 }: PropertyProps) {
   return (
-    <div className="property" key={title}>
+    <div className="property">
       <img
         className="property__photo"
         src={photo}

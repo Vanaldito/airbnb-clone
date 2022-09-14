@@ -12,6 +12,15 @@ interface Property {
   photo: string;
 }
 
-export function useProperties(): Property[] {
-  return properties;
+export function useProperties(
+  city: string,
+  country: string,
+  guests: number
+): Property[] {
+  return properties.filter(
+    property =>
+      property.city === city &&
+      property.country === country &&
+      property.maxGuests >= guests
+  );
 }

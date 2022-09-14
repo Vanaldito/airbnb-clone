@@ -1,5 +1,5 @@
 .property {
-  width: min(400px, calc(100% - 26px));
+  width: 100%;
 }
 
 .property__photo {

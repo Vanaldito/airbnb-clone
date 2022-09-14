@@ -1,5 +1,5 @@
 export default [
-  "Helsinki, Findland",
+  "Helsinki, Finland",
   "Turku, Finland",
   "Oulu, Finland",
   "Vaasa, Finland",

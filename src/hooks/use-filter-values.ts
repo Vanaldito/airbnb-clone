@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FilterValues } from "../types";
 
 export function useFilterValues(): FilterValues {
-  const [location, setLocation] = useState("Helsinki, Findland");
+  const [location, setLocation] = useState("Helsinki, Finland");
   const [guestsChildren, setGuestsChildren] = useState(0);
   const [guestsAdults, setGuestsAdults] = useState(0);
 
