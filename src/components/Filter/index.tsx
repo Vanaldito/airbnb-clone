@@ -35,7 +35,7 @@ export default function Filter() {
           Add guests
         </button>
         <button className="filter__search-button" type="submit">
-          <SearchIcon />
+          <SearchIcon color="orange" />
         </button>
       </div>
       {fieldToModify && (

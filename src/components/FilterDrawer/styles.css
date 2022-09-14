@@ -45,3 +45,15 @@
 .filter-drawer__field__placeholder {
   color: #bdbdbd;
 }
+
+.filter-drawer__search-button {
+  margin: 40px auto 0;
+  color: #f2f2f2;
+  background-color: #eb5757e5;
+  padding: 15px 20px;
+  display: flex;
+  gap: 7px;
+  font-size: 1.4rem;
+  border-radius: 16px;
+  border: none;
+}

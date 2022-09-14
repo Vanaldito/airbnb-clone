@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SearchIcon from "../Icons/Search";
 
 import "./styles.css";
 
@@ -41,6 +42,9 @@ export default function FilterDrawer({
           <div className="filter-drawer__field__placeholder">Add guests</div>
         </div>
       </div>
+      <button className="filter-drawer__search-button">
+        <SearchIcon color="white" /> Search
+      </button>
     </div>
   );
 }
