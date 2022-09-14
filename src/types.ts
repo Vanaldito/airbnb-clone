@@ -4,7 +4,13 @@ export interface FilterValues {
     modifier: (newLocation: string) => () => void;
   };
   guests: {
-    value: number;
-    modifier: (newGuests: number) => () => void;
+    value: {
+      adults: number;
+      children: number;
+    };
+    modifier: {
+      adults: (newAdults: number) => () => void;
+      children: (newChildren: number) => () => void;
+    };
   };
 }

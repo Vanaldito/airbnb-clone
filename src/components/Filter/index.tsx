@@ -23,6 +23,9 @@ export default function Filter() {
 
   const filterValues = useFilterValues();
 
+  const totalGuests =
+    filterValues.guests.value.children + filterValues.guests.value.adults;
+
   return (
     <FilterValues.Provider value={filterValues}>
       <div className="filter">
@@ -35,7 +38,13 @@ export default function Filter() {
             type="button"
             onClick={modifyField("guests")}
           >
-            Add guests
+            {totalGuests == 0 ? (
+              <span className="filter__guests__placeholder">Add guests</span>
+            ) : (
+              <span>
+                {totalGuests} guest{totalGuests > 1 ? "s" : ""}
+              </span>
+            )}
           </button>
           <button className="filter__search-button" type="submit">
             <SearchIcon color="orange" />

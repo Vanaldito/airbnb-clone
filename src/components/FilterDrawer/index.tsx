@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import FilterValues from "../../contexts/FilterValues";
 import CloseIcon from "../Icons/Close";
 import SearchIcon from "../Icons/Search";
+import GuestsFilterDrawer from "./GuestsFilterDrawer";
 import LocationFilterDrawer from "./LocationFilterDrawer";
 
 import "./styles.css";
@@ -18,6 +19,10 @@ export default function FilterDrawer({
   const [fieldToModify, setFieldToModify] = useState(defaultFieldToModify);
 
   const filterValues = useContext(FilterValues);
+
+  const totalGuests =
+    (filterValues?.guests.value.children || 0) +
+    (filterValues?.guests.value.adults || 0);
 
   return (
     <div className="filter-drawer">
@@ -46,10 +51,21 @@ export default function FilterDrawer({
           onClick={() => setFieldToModify("guests")}
         >
           <div className="filter-drawer__field__title">Guests</div>
-          <div className="filter-drawer__field__placeholder">Add guests</div>
+          <div className="filter-drawer__field__value">
+            {totalGuests == 0 ? (
+              <span className="filter-drawer__field__placeholder">
+                Add guests
+              </span>
+            ) : (
+              <span>
+                {totalGuests} guest{totalGuests > 1 ? "s" : ""}
+              </span>
+            )}
+          </div>
         </div>
       </div>
       {fieldToModify === "location" && <LocationFilterDrawer />}
+      {fieldToModify === "guests" && <GuestsFilterDrawer />}
       <button className="filter-drawer__search-button">
         <SearchIcon color="white" /> Search
       </button>

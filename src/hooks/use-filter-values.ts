@@ -3,7 +3,8 @@ import { FilterValues } from "../types";
 
 export function useFilterValues(): FilterValues {
   const [location, setLocation] = useState("Helsinki, Findland");
-  const [guests, setGuests] = useState(0);
+  const [guestsChildren, setGuestsChildren] = useState(0);
+  const [guestsAdults, setGuestsAdults] = useState(0);
 
   function changeLocation(newLocation: string) {
     return () => {
@@ -11,14 +12,29 @@ export function useFilterValues(): FilterValues {
     };
   }
 
-  function changeGuests(newGuests: number) {
+  function changeGuestsChildren(newChildren: number) {
     return () => {
-      setGuests(newGuests);
+      setGuestsChildren(newChildren);
+    };
+  }
+
+  function changeGuestsAdults(newAdults: number) {
+    return () => {
+      setGuestsAdults(newAdults);
     };
   }
 
   return {
     location: { value: location, modifier: changeLocation },
-    guests: { value: guests, modifier: changeGuests },
+    guests: {
+      value: {
+        children: guestsChildren,
+        adults: guestsAdults,
+      },
+      modifier: {
+        children: changeGuestsChildren,
+        adults: changeGuestsAdults,
+      },
+    },
   };
 }
