@@ -1,3 +1,4 @@
+import SearchIcon from "../Icons/Search";
 import "./styles.css";
 
 export default function Navbar() {
@@ -13,7 +14,7 @@ export default function Navbar() {
           <div className="filter__city">Helsinki, Finland</div>
           <input className="filter__guests" placeholder="Add guests" />
           <button className="filter__search-button" type="submit">
-            Search
+            <SearchIcon />
           </button>
         </form>
       </div>
