@@ -72,3 +72,13 @@
 .filter__city::after {
   right: 0;
 }
+
+@media (min-width: 800px) {
+  .filter {
+    margin-top: 0;
+  }
+
+  .filter__form {
+    width: 350px;
+  }
+}

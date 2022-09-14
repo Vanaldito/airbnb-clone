@@ -3,6 +3,19 @@
 }
 
 .logo__link {
-  padding: 19px 13px;
   display: inline-block;
+  padding: 19px 13px;
+}
+
+@media (min-width: 800px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 34px;
+  }
+
+  .logo__link {
+    margin: -19px -13px;
+  }
 }
