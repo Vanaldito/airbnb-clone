@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import FilterValues from "../contexts/FilterValues";
 import CloseIcon from "../Icons/Close";
 import SearchIcon from "../Icons/Search";
+import LocationFilterDrawer from "./LocationFilterDrawer";
 
 import "./styles.css";
 
@@ -14,6 +16,8 @@ export default function FilterDrawer({
   closeDrawer,
 }: FilterDrawerProps) {
   const [fieldToModify, setFieldToModify] = useState(defaultFieldToModify);
+
+  const filterValues = useContext(FilterValues);
 
   return (
     <div className="filter-drawer">
@@ -33,7 +37,9 @@ export default function FilterDrawer({
           onClick={() => setFieldToModify("location")}
         >
           <div className="filter-drawer__field__title">Location</div>
-          <div className="filter-drawer__field__value">Helsinki, Finland</div>
+          <div className="filter-drawer__field__value">
+            {filterValues?.location.value}
+          </div>
         </div>
         <div
           className="filter-drawer__field"
@@ -43,6 +49,7 @@ export default function FilterDrawer({
           <div className="filter-drawer__field__placeholder">Add guests</div>
         </div>
       </div>
+      {fieldToModify === "location" && <LocationFilterDrawer />}
       <button className="filter-drawer__search-button">
         <SearchIcon color="white" /> Search
       </button>

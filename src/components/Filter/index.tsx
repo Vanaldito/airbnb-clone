@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useFilterValues } from "../../hooks/use-filter-values";
+import FilterValues from "../contexts/FilterValues";
 import FilterDrawer from "../FilterDrawer";
 import SearchIcon from "../Icons/Search";
 
@@ -8,8 +10,6 @@ export default function Filter() {
   const [fieldToModify, setFieldToModify] = useState<
     null | "guests" | "location"
   >(null);
-  const [location, setLocation] = useState("Helsinki, Findland");
-  const [guests, setGuests] = useState(0);
 
   function modifyField(fieldName: "guests" | "location") {
     return () => {
@@ -21,29 +21,33 @@ export default function Filter() {
     setFieldToModify(null);
   }
 
+  const filterValues = useFilterValues();
+
   return (
-    <div className="filter">
-      <div className="filter__form">
-        <div className="filter__city" onClick={modifyField("location")}>
-          {location}
+    <FilterValues.Provider value={filterValues}>
+      <div className="filter">
+        <div className="filter__form">
+          <div className="filter__city" onClick={modifyField("location")}>
+            {filterValues.location.value}
+          </div>
+          <button
+            className="filter__guests"
+            type="button"
+            onClick={modifyField("guests")}
+          >
+            Add guests
+          </button>
+          <button className="filter__search-button" type="submit">
+            <SearchIcon color="orange" />
+          </button>
         </div>
-        <button
-          className="filter__guests"
-          type="button"
-          onClick={modifyField("guests")}
-        >
-          Add guests
-        </button>
-        <button className="filter__search-button" type="submit">
-          <SearchIcon color="orange" />
-        </button>
+        {fieldToModify && (
+          <FilterDrawer
+            defaultFieldToModify={fieldToModify}
+            closeDrawer={clearFieldToModify}
+          />
+        )}
       </div>
-      {fieldToModify && (
-        <FilterDrawer
-          defaultFieldToModify={fieldToModify}
-          closeDrawer={clearFieldToModify}
-        />
-      )}
-    </div>
+    </FilterValues.Provider>
   );
 }
