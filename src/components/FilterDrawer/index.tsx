@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CloseIcon from "../Icons/Close";
 import SearchIcon from "../Icons/Search";
 
 import "./styles.css";
@@ -23,7 +24,7 @@ export default function FilterDrawer({
           type="button"
           onClick={closeDrawer}
         >
-          Close
+          <CloseIcon />
         </button>
       </header>
       <div className="filter-drawer__fields">
