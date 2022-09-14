@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import availableLocations from "../../constants/available-locations";
 import FilterValues from "../contexts/FilterValues";
+import LocationIcon from "../Icons/Location";
 
 export default function LocationFilterDrawer() {
   const filterValues = useContext(FilterValues);
@@ -13,7 +14,7 @@ export default function LocationFilterDrawer() {
           onClick={filterValues?.location.modifier(location)}
           key={location}
         >
-          {location}
+          <LocationIcon /> {location}
         </li>
       ))}
     </ul>

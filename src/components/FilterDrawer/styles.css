@@ -66,3 +66,9 @@
   font-size: 1.4rem;
   padding: 10px 20px;
 }
+
+.location-filter-drawer__select-location {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
