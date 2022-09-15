@@ -25,53 +25,64 @@ export default function FilterDrawer({
     (filterValues?.guests.value.adults || 0);
 
   return (
-    <div className="filter-drawer">
-      <header className="filter-drawer__header">
-        <div>Edit you search</div>
+    <>
+      <div className="filter-drawer-background" onClick={closeDrawer} />
+      <div className="filter-drawer">
+        <header className="filter-drawer__header">
+          <div>Edit you search</div>
+          <button
+            className="filter-drawer__close-button"
+            type="button"
+            onClick={closeDrawer}
+          >
+            <CloseIcon />
+          </button>
+        </header>
+        <div className="filter-drawer__fields">
+          <div
+            className="filter-drawer__field"
+            onClick={() => setFieldToModify("location")}
+          >
+            <div className="filter-drawer__field__title">Location</div>
+            <div className="filter-drawer__field__value">
+              {filterValues?.location.value}
+            </div>
+          </div>
+          <div
+            className="filter-drawer__field"
+            onClick={() => setFieldToModify("guests")}
+          >
+            <div className="filter-drawer__field__title">Guests</div>
+            <div className="filter-drawer__field__value">
+              {totalGuests == 0 ? (
+                <span className="filter-drawer__field__placeholder">
+                  Add guests
+                </span>
+              ) : (
+                <span>
+                  {totalGuests} guest{totalGuests > 1 ? "s" : ""}
+                </span>
+              )}
+            </div>
+          </div>
+          <button
+            className="filter-drawer__search-button filter-drawer__search-button--desktop"
+            type="button"
+            onClick={closeDrawer}
+          >
+            <SearchIcon color="white" /> Search
+          </button>
+        </div>
+        {fieldToModify === "location" && <LocationFilterDrawer />}
+        {fieldToModify === "guests" && <GuestsFilterDrawer />}
         <button
-          className="filter-drawer__close-button"
+          className="filter-drawer__search-button filter-drawer__search-button--mobile"
           type="button"
           onClick={closeDrawer}
         >
-          <CloseIcon />
-        </button>
-      </header>
-      <div className="filter-drawer__fields">
-        <div
-          className="filter-drawer__field"
-          onClick={() => setFieldToModify("location")}
-        >
-          <div className="filter-drawer__field__title">Location</div>
-          <div className="filter-drawer__field__value">
-            {filterValues?.location.value}
-          </div>
-        </div>
-        <div
-          className="filter-drawer__field"
-          onClick={() => setFieldToModify("guests")}
-        >
-          <div className="filter-drawer__field__title">Guests</div>
-          <div className="filter-drawer__field__value">
-            {totalGuests == 0 ? (
-              <span className="filter-drawer__field__placeholder">
-                Add guests
-              </span>
-            ) : (
-              <span>
-                {totalGuests} guest{totalGuests > 1 ? "s" : ""}
-              </span>
-            )}
-          </div>
-        </div>
-        <button className="filter-drawer__search-button filter-drawer__search-button--desktop">
           <SearchIcon color="white" /> Search
         </button>
       </div>
-      {fieldToModify === "location" && <LocationFilterDrawer />}
-      {fieldToModify === "guests" && <GuestsFilterDrawer />}
-      <button className="filter-drawer__search-button filter-drawer__search-button--mobile">
-        <SearchIcon color="white" /> Search
-      </button>
-    </div>
+    </>
   );
 }
