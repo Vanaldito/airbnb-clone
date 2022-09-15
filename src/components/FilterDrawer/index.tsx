@@ -63,10 +63,13 @@ export default function FilterDrawer({
             )}
           </div>
         </div>
+        <button className="filter-drawer__search-button filter-drawer__search-button--desktop">
+          <SearchIcon color="white" /> Search
+        </button>
       </div>
       {fieldToModify === "location" && <LocationFilterDrawer />}
       {fieldToModify === "guests" && <GuestsFilterDrawer />}
-      <button className="filter-drawer__search-button">
+      <button className="filter-drawer__search-button filter-drawer__search-button--mobile">
         <SearchIcon color="white" /> Search
       </button>
     </div>

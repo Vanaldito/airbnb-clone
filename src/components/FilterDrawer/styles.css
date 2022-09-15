@@ -58,6 +58,10 @@
   border: none;
 }
 
+.filter-drawer__search-button--desktop {
+  display: none;
+}
+
 .location-filter-drawer {
   list-style: none;
   display: flex;
@@ -108,4 +112,31 @@
 
 .guests-filter-drawer__amount {
   font-size: 1.4rem;
+}
+
+@media (min-width: 800px) {
+  .filter-drawer__fields {
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-drawer__field {
+    flex-grow: 1;
+  }
+
+  .filter-drawer__search-button--mobile {
+    display: none;
+  }
+
+  .filter-drawer__search-button--desktop {
+    display: flex;
+    margin: 0;
+    padding: 13px 20px;
+    height: max-content;
+  }
+
+  .guests-filter-drawer {
+    position: relative;
+    left: calc(50% - 30px);
+  }
 }
