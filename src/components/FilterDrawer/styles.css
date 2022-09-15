@@ -4,6 +4,8 @@
   right: 0;
   top: 0;
   bottom: 0;
+  backdrop-filter: blur(2px);
+  background-color: #4f4f4f5a;
 }
 
 .filter-drawer {
@@ -14,6 +16,8 @@
   box-sizing: border-box;
   background-color: #fff;
   padding: 13px;
+  height: min(630px, 80%);
+  overflow: auto;
 }
 
 .filter-drawer__header {
@@ -123,6 +127,10 @@
 }
 
 @media (min-width: 800px) {
+  .filter-drawer {
+    height: min(460px, 60%);
+  }
+
   .filter-drawer__fields {
     display: flex;
     align-items: center;
@@ -146,5 +154,6 @@
   .guests-filter-drawer {
     position: relative;
     left: calc(50% - 30px);
+    width: 50%;
   }
 }
